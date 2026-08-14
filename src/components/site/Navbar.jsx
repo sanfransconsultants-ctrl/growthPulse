@@ -9,6 +9,7 @@ const LINKS = [
   { label: "Pricing", href: "#pricing" },
   { label: "Team", href: "#team" },
   { label: "Global", to: "/global" },
+  { label: "Log in", to: "/login" },
 ];
 
 export default function Navbar() {

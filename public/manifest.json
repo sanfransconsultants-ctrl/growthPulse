@@ -1,0 +1,9 @@
+{
+  "name": "Quantum Growth Logic",
+  "short_name": "QGL",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }],
+  "theme_color": "#0C2B3D",
+  "background_color": "#F3F9F8",
+  "display": "standalone",
+  "start_url": "/"
+}

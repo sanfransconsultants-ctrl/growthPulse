@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -28,9 +29,15 @@ export default function Footer() {
             <a href="#pricing" className="hover:text-background transition-colors">Pricing</a>
             <a href="#team" className="hover:text-background transition-colors">Team</a>
           </nav>
-          <div className="font-mono-label text-background/40 text-xs">
-            © {new Date().getFullYear()} Quantum Growth Logic
-          </div>
+          <div className="flex items-center gap-4 font-mono-label text-background/40 text-xs">
++             <span>© {new Date().getFullYear()} Quantum Growth Logic</span>
++             <Link to="/privacy-policy" className="hover:text-background/70 transition-colors">
++               Privacy
++             </Link>
++             <Link to="/terms" className="hover:text-background/70 transition-colors">
++               Terms
++             </Link>
++           </div>
         </div>
       </div>
     </footer>

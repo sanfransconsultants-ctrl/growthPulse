@@ -1,20 +1,46 @@
-import React, { useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
-import { base44 } from "@/api/base44Client";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { supabase } from "@/api/supabaseClient";
+import { authClient } from "@/api/authClient";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Lock, Loader2, AlertTriangle } from "lucide-react";
 import AuthLayout from "@/components/AuthLayout";
 
+// Base44 passed a reset token back as a URL query param that this page
+// exchanged manually. Supabase does it differently: clicking the emailed
+// link lands here with the token in the URL and supabase-js reads it
+// automatically, firing a PASSWORD_RECOVERY event once a temporary
+// session is established. This page waits for that instead of reading
+// ?token= itself -- everything below the wait is the same UI as before.
 export default function ResetPassword() {
-  const [searchParams] = useSearchParams();
-  const resetToken = searchParams.get("token");
+  const navigate = useNavigate();
+  const [checking, setChecking] = useState(true);
+  const [ready, setReady] = useState(false);
 
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const { data: listener } = supabase.auth.onAuthStateChange((event) => {
+      if (event === "PASSWORD_RECOVERY") {
+        setReady(true);
+        setChecking(false);
+      }
+    });
+
+    // Covers the case where the recovery session is already active
+    // by the time this effect runs.
+    supabase.auth.getSession().then(({ data }) => {
+      if (data.session) setReady(true);
+      setChecking(false);
+    });
+
+    return () => listener?.subscription?.unsubscribe();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,8 +51,8 @@ export default function ResetPassword() {
     }
     setLoading(true);
     try {
-      await base44.auth.resetPassword({ resetToken, newPassword });
-      window.location.href = "/login";
+      await authClient.auth.resetPassword({ newPassword });
+      navigate("/login");
     } catch (err) {
       setError(err.message || "Failed to reset password");
     } finally {
@@ -34,12 +60,20 @@ export default function ResetPassword() {
     }
   };
 
-  if (!resetToken) {
+  if (checking) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  if (!ready) {
     return (
       <AuthLayout
         icon={AlertTriangle}
         title="Invalid reset link"
-        subtitle="This password reset link is missing or invalid"
+        subtitle="This password reset link is missing, invalid, or expired"
         footer={
           <Link to="/forgot-password" className="text-primary font-medium hover:underline">
             Request a new link
@@ -47,7 +81,7 @@ export default function ResetPassword() {
         }
       >
         <p className="text-sm text-foreground text-center">
-          The link you used appears to be incomplete. Please request a new password reset email.
+          The link you used appears to be incomplete or has expired. Please request a new password reset email.
         </p>
       </AuthLayout>
     );

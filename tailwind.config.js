@@ -10,6 +10,7 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
+			
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -59,7 +60,12 @@ module.exports = {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
-  			}
+  			},
+			aqua: 'hsl(var(--aqua))',
+			'on-navy': 'hsl(var(--on-navy))',
+			'on-navy-soft': 'hsl(var(--on-navy-soft))',
+			'navy-line': 'hsl(var(--navy-line))'
+			
   		},
   		fontFamily: {
   			heading: ['var(--font-heading)'],
