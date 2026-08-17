@@ -3,7 +3,7 @@ import Footer from "@/components/site/Footer";
 
 // Template content -- fill in the bracketed placeholders and have this
 // reviewed by a lawyer before treating it as your real terms of service.
-const COMPANY_NAME = "Quantum Growth Logic";
+const COMPANY_NAME = "Feneros";
 const CONTACT_EMAIL = "[your-contact-email]";
 const GOVERNING_LAW = "[Your State/Country]";
 const LAST_UPDATED = "[Month Day, Year]";

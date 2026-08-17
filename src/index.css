@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 170 33% 96%;
+    --background: 0 0% 100%;
     --foreground: 202 67% 14%;
     --card: 0 0% 100%;
     --card-foreground: 202 67% 14%;
@@ -34,6 +34,14 @@
     --on-navy: 165 40% 94%;
     --on-navy-soft: 174 24% 70%;
     --navy-line: 203 43% 25%;
+    /* navy + gold is a deliberate second pairing, used for the Findings
+       panel specifically -- not part of the main oceanic system */
+    --gold: 42 87% 55%;
+    --gold-line: 43 89% 38%;
+    /* deep sage/muted teal -- used for the Leak Map section specifically */
+    --sage: 163 30% 23%;
+    /* pale khaki/cream -- used for the Projected Impact cards */
+    --khaki: 42 48% 86%;
   }
 }
 

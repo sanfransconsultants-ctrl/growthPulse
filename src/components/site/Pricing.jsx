@@ -33,6 +33,19 @@ const TIERS = [
     ],
   },
   {
+    name: "AI Lead Agent",
+    price: "$999 - $1,999/mo",
+    tagline: "Automated lead response, booking, and follow-up — 24/7.",
+    cta: "Add This to Your Plan",
+    ctaHref: "#audit",
+    items: [
+      "24/7 automated lead response",
+      "Appointment booking integration",
+      "Follow-up sequences",
+      "Can be added standalone or bundled into Growth Retainer",
+    ],
+  },
+  {
     name: "Monthly Growth Retainer",
     price: "Monthly",
     tagline: "We build and run the whole system.",
@@ -55,7 +68,7 @@ export default function Pricing() {
     <section id="pricing" className="relative py-24 md:py-40 border-t border-border/60">
       <div className="max-w-7xl mx-auto px-6">
         <Reveal>
-          <div className="font-mono-label text-primary mb-5">06 / Partnership Tiers</div>
+          <div className="font-mono-label text-primary mb-5">Partnership Tiers</div>
           <h2 className="text-4xl md:text-5xl max-w-3xl">
             Start free. Stay only if it pays.
           </h2>
@@ -65,13 +78,13 @@ export default function Pricing() {
           </p>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
           {TIERS.map((t, i) => (
             <Reveal key={t.name} delay={i * 100} className={`flex ${t.wide ? "lg:col-span-1" : ""}`}>
               <div
                 className={`relative flex flex-col w-full rounded-2xl p-8 border transition-all ${
                   t.glow
-                    ? "border-primary/50 bg-card shadow-[0_0_40px_-12px_hsl(240_100%_68%/0.4)]"
+                    ? "border-primary/50 bg-card shadow-[0_0_40px_-12px_hsl(var(--accent)/0.4)]"
                     : t.highlight
                     ? "border-primary bg-primary/[0.04]"
                     : "border-border/60 bg-card"

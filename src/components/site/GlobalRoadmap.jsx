@@ -2,13 +2,13 @@ import { MapPin } from "lucide-react";
 import Reveal from "./Reveal";
 
 const REGIONS = [
-  { city: "Dubai", country: "UAE", focus: "Gulf & MENA hub", phase: "Phase 01" },
-  { city: "Paris", country: "France", focus: "European market entry", phase: "Phase 01" },
-  { city: "Tokyo", country: "Japan", focus: "APAC expansion", phase: "Phase 02" },
-  { city: "New York", country: "USA", focus: "Americas base", phase: "Phase 02" },
-  { city: "London", country: "UK", focus: "English-speaking markets", phase: "Phase 03" },
-  { city: "Singapore", country: "SG", focus: "Southeast Asia gateway", phase: "Phase 03" },
-];
+  { city: "Dubai", slug: "dubai", country: "UAE", focus: "Gulf & MENA hub", phase: "Phase 01" },
+  { city: "Paris", slug: "paris", country: "France", focus: "European market entry", phase: "Phase 01" },
+  { city: "Tokyo", slug: "tokyo", country: "Japan", focus: "APAC expansion", phase: "Phase 02" },
+  { city: "New York", slug: "new-york", country: "USA", focus: "Americas base", phase: "Phase 02" },
+  { city: "London", slug: "london", country: "UK", focus: "English-speaking markets", phase: "Phase 03" },
+  { city: "Singapore", slug: "singapore", country: "SG", focus: "Southeast Asia gateway", phase: "Phase 03" },
+ ];
 
 export default function GlobalRoadmap() {
   return (
@@ -37,20 +37,31 @@ export default function GlobalRoadmap() {
             {REGIONS.map((r) => (
               <div
                 key={r.city}
-                className="group relative border border-border/60 bg-card rounded-xl p-6 transition-all hover:border-primary/40 hover:bg-primary/[0.03] crosshair-zone"
-              >
-                <div className="flex items-start justify-between mb-6">
-                  <MapPin className="w-5 h-5 text-primary" />
-                  <span className="font-mono-label text-[10px] text-muted-foreground">
-                    {r.phase}
-                  </span>
+                className="group relative overflow-hidden rounded-xl border border-border/60 shadow-lg hover:shadow-xl transition-all crosshair-zone"
+               >
+                <img
+                  src={`/images/cities/${r.slug}.jpg`}
+                  alt={`${r.city}, ${r.country}`}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onError={(e) => { e.currentTarget.style.display = "none"; }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/75 to-primary/25" />
+                <div className="relative min-h-[220px] p-6 flex flex-col justify-between">
+                  <div className="flex items-start justify-between">
+                    <MapPin className="w-5 h-5 text-aqua" />
+                    <span className="font-mono-label text-[10px] text-on-navy-soft">
+                      {r.phase}
+                    </span>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-semibold tracking-tight text-on-navy">{r.city}</div>
+                    <div className="font-mono-label text-on-navy-soft mt-1">{r.country}</div>
+                    <p className="mt-3 text-on-navy-soft text-sm leading-relaxed">
+                      {r.focus}
+                    </p>
+                  </div>
                 </div>
-                <div className="text-2xl font-semibold tracking-tight">{r.city}</div>
-                <div className="font-mono-label text-muted-foreground mt-1">{r.country}</div>
-                <p className="mt-4 text-muted-foreground text-sm leading-relaxed">
-                  {r.focus}
-                </p>
-                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary transition-all duration-500 group-hover:w-full" />
+                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-aqua transition-all duration-500 group-hover:w-full" />
               </div>
             ))}
           </div>

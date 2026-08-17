@@ -21,7 +21,7 @@ export default function Footer() {
         <div className="mt-20 flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-background/10">
           <div className="flex items-center gap-2 font-semibold tracking-tight">
             <span className="inline-block w-2.5 h-2.5 rounded-sm bg-primary" />
-            Quantum Growth Logic
+             Feneros
           </div>
           <nav className="flex items-center gap-6 font-mono-label text-background/60">
             <a href="#leaks" className="hover:text-background transition-colors">Leaks</a>
@@ -30,7 +30,7 @@ export default function Footer() {
             <a href="#team" className="hover:text-background transition-colors">Team</a>
           </nav>
           <div className="flex items-center gap-4 font-mono-label text-background/40 text-xs">
-+             <span>© {new Date().getFullYear()} Quantum Growth Logic</span>
++             <span>© {new Date().getFullYear()} Feneros</span>
 +             <Link to="/privacy-policy" className="hover:text-background/70 transition-colors">
 +               Privacy
 +             </Link>

@@ -64,8 +64,11 @@ module.exports = {
 			aqua: 'hsl(var(--aqua))',
 			'on-navy': 'hsl(var(--on-navy))',
 			'on-navy-soft': 'hsl(var(--on-navy-soft))',
-			'navy-line': 'hsl(var(--navy-line))'
-			
+			'navy-line': 'hsl(var(--navy-line))',
+			gold: 'hsl(var(--gold))',
+			'gold-line': 'hsl(var(--gold-line))',
+			sage: 'hsl(var(--sage))',
+			khaki: 'hsl(var(--khaki))',
   		},
   		fontFamily: {
   			heading: ['var(--font-heading)'],

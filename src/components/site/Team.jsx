@@ -30,7 +30,7 @@ export default function Team() {
       <div className="absolute inset-0 mesh-gradient opacity-50 pointer-events-none" />
       <div className="relative max-w-7xl mx-auto px-6">
         <Reveal>
-          <div className="font-mono-label text-primary mb-5">05 / Meet the Team</div>
+          <div className="font-mono-label text-primary mb-5">Meet the Team</div>
           <h2 className="text-4xl md:text-5xl max-w-3xl">
             A small, senior, multi-disciplinary group.
           </h2>

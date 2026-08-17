@@ -3,12 +3,12 @@ import Reveal from "@/components/site/Reveal";
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-36 md:pt-48 pb-24 md:pb-32">
+    <section id="top" className="relative overflow-hidden pt-36 md:pt-48 pb-24 md:pb-32 bg-khaki">
       <div className="relative max-w-7xl mx-auto px-6">
         <Reveal>
           <div className="font-mono-label text-accent flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-            Finding No. 001 — Free Growth Audit
+            Free Growth Audit
           </div>
         </Reveal>
 
@@ -39,10 +39,10 @@ export default function Hero() {
         <Reveal delay={450}>
           <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <a
-              href="#audit"
+              href="#visibility-score"
               className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium hover:bg-aqua hover:text-primary transition-all hover:gap-3"
             >
-              Get a Free Growth Audit
+              Get Your Free Visibility Score
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a

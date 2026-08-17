@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+
+// TODO: swap in your real number -- placeholder until you send it over
+const PHONE_NUMBER = "+15555555555";
+const PHONE_DISPLAY = "(555) 555-5555";
 
 const LINKS = [
   { label: "Leaks", href: "#leaks" },
@@ -32,7 +36,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between h-14">
         <a href="#top" className="flex items-center gap-2 font-semibold tracking-tight">
           <span className="inline-block w-2.5 h-2.5 rounded-sm bg-primary" />
-          <span className="text-foreground">Quantum Growth Logic</span>
+          <span className="text-foreground">Feneros</span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">
@@ -55,6 +59,13 @@ export default function Navbar() {
               </a>
             )
           )}
+          <a
+            href={`tel:${PHONE_NUMBER}`}
+            className="hidden lg:flex items-center gap-1.5 font-mono-label text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Phone className="w-3.5 h-3.5" />
+            {PHONE_DISPLAY}
+          </a>
           <a
             href="#audit"
             className="font-mono-label bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
@@ -95,6 +106,14 @@ export default function Navbar() {
               </a>
             )
           )}
+          <a
+            href={`tel:${PHONE_NUMBER}`}
+            onClick={() => setOpen(false)}
+            className="flex items-center gap-1.5 font-mono-label text-muted-foreground hover:text-foreground"
+          >
+            <Phone className="w-3.5 h-3.5" />
+            {PHONE_DISPLAY}
+          </a>
           <a
             href="#audit"
             onClick={() => setOpen(false)}

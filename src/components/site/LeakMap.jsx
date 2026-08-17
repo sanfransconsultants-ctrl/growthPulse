@@ -24,7 +24,7 @@ const LEAKS = [
 ];
 
 function Visual({ type }) {
-  const stroke = "hsl(240 100% 68%)";
+  const stroke = "hsl(var(--sage))";
   const muted = "hsl(0 0% 70%)";
   if (type === "funnel") {
     return (
@@ -80,14 +80,14 @@ function Visual({ type }) {
 
 export default function LeakMap() {
   return (
-    <section id="leaks" className="relative py-24 md:py-40 border-t border-border/60">
+    <section id="leaks" className="relative py-24 md:py-40 border-t border-border/60 bg-sage">
       <div className="max-w-7xl mx-auto px-6">
         <Reveal>
-          <div className="font-mono-label text-primary mb-5">01 / The Leak Map</div>
-          <h2 className="text-4xl md:text-5xl max-w-3xl">
+          <div className="font-mono-label text-on-navy mb-5">The Leak Map</div>
+          <h2 className="text-4xl md:text-5xl max-w-3xl text-on-navy">
             You can feel the leak. You just can&rsquo;t see it.
           </h2>
-          <p className="mt-6 text-muted-foreground max-w-2xl text-lg">
+          <p className="mt-6 text-on-navy max-w-2xl text-lg">
             Four places small businesses quietly lose money online. We map every one
             before we touch a single line of content.
           </p>
@@ -100,13 +100,13 @@ export default function LeakMap() {
                 <Visual type={l.visual} />
               </div>
               <div>
-                <div className="font-mono-label text-muted-foreground mb-2">
+                <div className="font-mono-label text-on-navy mb-2">
                   LEAK_0{i + 1}
                 </div>
-                <h3 className="text-xl md:text-2xl font-semibold tracking-tight">
+                <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-on-navy">
                   {l.title}
                 </h3>
-                <p className="mt-2 text-muted-foreground leading-relaxed">{l.body}</p>
+                <p className="mt-2 text-on-navy leading-relaxed">{l.body}</p>
               </div>
             </Reveal>
           ))}

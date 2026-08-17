@@ -25,7 +25,7 @@ const STEPS = [
 ];
 
 function Visual({ type }) {
-  const stroke = "hsl(240 100% 68%)";
+  const stroke = "hsl(var(--accent))";
   const muted = "hsl(0 0% 75%)";
   if (type === "audit") {
     return (
@@ -70,30 +70,34 @@ function Visual({ type }) {
 
 export default function GrowthPipeline() {
   return (
-    <section id="process" className="relative py-24 md:py-40 border-t border-border/60 bg-gradient-to-b from-background to-primary/[0.03]">
+    <section id="process" className="relative py-24 md:py-40 border-t border-border/60 bg-background">
       <div className="max-w-7xl mx-auto px-6">
-        <Reveal>
-          <div className="font-mono-label text-primary mb-5">02 / The Growth Pipeline</div>
-          <h2 className="text-4xl md:text-5xl max-w-3xl">
-            From leak to fixed in three deliberate moves.
-          </h2>
-        </Reveal>
+        <div className="bg-gold rounded-[28px] px-6 py-12 md:px-12 md:py-14 shadow-lg">
+          <Reveal>
+            <div className="font-mono-label text-primary mb-5">The Growth Pipeline</div>
+            <h2 className="text-4xl md:text-5xl max-w-3xl text-primary">
+              From leak to fixed in three deliberate moves.
+            </h2>
+          </Reveal>
+        </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 relative">
           <div className="hidden md:block absolute top-[52px] left-[16%] right-[16%] h-px bg-border" />
           {STEPS.map((s, i) => (
-            <Reveal key={s.no} delay={i * 120} className="relative">
+            <Reveal key={s.no} delay={i * 120} className="relative h-full flex flex-col">
               <div className="flex items-center gap-4 mb-6">
-                <div className="relative z-10 w-12 h-12 rounded-full bg-background border border-primary text-primary font-mono-label flex items-center justify-center shrink-0">
+                <div className="relative z-10 w-12 h-12 rounded-full bg-primary border border-primary text-primary-foreground font-mono-label flex items-center justify-center shrink-0">
                   {s.no}
                 </div>
                 <span className="font-mono-label text-muted-foreground">{s.label}</span>
               </div>
-              <div className="w-full h-28 border border-border/60 rounded-lg p-3 mb-6 bg-card crosshair-zone">
+              <div className="w-full h-28 border border-border/60 rounded-lg p-3 mb-6 bg-card crosshair-zone shadow-lg">
                 <Visual type={s.visual} />
               </div>
-              <h3 className="text-2xl font-semibold tracking-tight">{s.title}</h3>
-              <p className="mt-3 text-muted-foreground leading-relaxed">{s.body}</p>
+              <div className="flex-1 backdrop-blur-md border border-white/15 panel-dark rounded-lg p-4">
+                <h3 className="text-2xl font-semibold tracking-tight text-aqua">{s.title}</h3>
+                <p className="mt-3 leading-relaxed">{s.body}</p>
+               </div>
             </Reveal>
           ))}
         </div>

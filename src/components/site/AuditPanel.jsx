@@ -100,6 +100,13 @@ export default function AuditPanel() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="panel-dark rounded-[28px] px-6 py-16 md:px-12 md:py-20">
 
+          <Reveal>
+            <div className="font-mono-label flex items-center gap-2 mb-10">
+              <span className="w-1.5 h-1.5 rounded-full bg-aqua" />
+              Book Your Audit
+            </div>
+          </Reveal>
+
           {/* Exhibit A -- the diagnostic scan image */}
           <div className="grid md:grid-cols-[0.85fr_1.15fr] gap-14 items-center">
             <Reveal>
@@ -127,14 +134,15 @@ export default function AuditPanel() {
                   <span>Fig. 1 — Live funnel scan</span>
                   <span>Scan_001</span>
                 </div>
-                <div className="hidden md:block absolute -left-8 top-[14%] bg-background border border-primary rounded px-4 py-3 max-w-[190px] shadow-lg">
-                  <span className="font-mono-label text-accent block mb-1">Leak found</span>
-                  <span className="text-sm text-foreground">/pricing · 4.2s load</span>
-                </div>
-                <div className="hidden md:block absolute -right-6 bottom-[8%] bg-background border border-primary rounded px-4 py-3 max-w-[190px] shadow-lg">
-                  <span className="font-mono-label text-accent block mb-1">Projected fix</span>
-                  <span className="text-sm text-foreground">+30% conversion</span>
-                </div>
+                <div className="hidden md:block absolute -left-8 top-[14%] bg-primary/30 backdrop-blur-md border border-white/20 rounded px-4 py-3 max-w-[190px] shadow-lg">
+                  <span className="font-mono-label text-aqua block mb-1">Leak found</span>
+                  <span className="text-sm text-on-navy">/pricing · 4.2s load</span>
+                 </div>
+
+                <div className="hidden md:block absolute -right-6 bottom-[8%] bg-primary/30 backdrop-blur-md border border-white/20 rounded px-4 py-3 max-w-[190px] shadow-lg">
+                  <span className="font-mono-label text-aqua block mb-1">Projected fix</span>
+                  <span className="text-sm text-on-navy">+30% conversion</span>
+                 </div>
               </div>
             </Reveal>
           </div>
@@ -142,7 +150,7 @@ export default function AuditPanel() {
           {/* Reporting */}
           <div className="mt-14 pt-14 border-t border-navy-line">
             <Reveal>
-              <div className="font-mono-label">010</div>
+              
               <h2 className="mt-4 text-3xl md:text-4xl">This month's reporting — not vanity metrics.</h2>
             </Reveal>
             <div className="mt-8">

@@ -22,9 +22,9 @@ serve(async (req) => {
       <p>Hi ${name},</p>
       <p>Thanks for requesting a growth audit. We'll review your site and
       be in touch within one business day to book your walkthrough.</p>
-      <p>— Quantum Growth Logic</p>
+      <p>— Feneros</p>
     `;
-    const text = `Hi ${name},\n\nThanks for requesting a growth audit. We'll review your site and be in touch within one business day to book your walkthrough.\n\n— Quantum Growth Logic`;
+    const text = `Hi ${name},\n\nThanks for requesting a growth audit. We'll review your site and be in touch within one business day to book your walkthrough.\n\n— Feneros`;
 
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",

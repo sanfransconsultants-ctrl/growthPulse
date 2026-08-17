@@ -21,8 +21,8 @@ function FindingCard({ f, delay }) {
   return (
     <Reveal delay={delay}>
       <div
-        className={`h-full border rounded-xl p-6 bg-card transition-all duration-300 cursor-default ${
-          open ? "border-accent -translate-y-1 shadow-lg" : "border-border hover:-translate-y-1 hover:shadow-lg hover:border-accent"
+        className={`h-full border rounded-xl p-6 bg-white/25 backdrop-blur-md transition-all duration-300 cursor-default ${
+          open ? "border-accent -translate-y-1 shadow-lg" : "border-white/40 hover:-translate-y-1 hover:shadow-lg hover:border-accent"
         }`}
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
@@ -50,24 +50,28 @@ function FindingCard({ f, delay }) {
 
 export default function Findings() {
   return (
-    <section id="outcomes" className="relative py-24 md:py-40 border-t border-border/60">
+    <section id="outcomes" className="relative py-8 md:py-14">
       <div className="max-w-7xl mx-auto px-6">
-        <Reveal>
-          <div className="font-mono-label text-accent mb-5 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-            The Findings
+        <div className="bg-gold rounded-[28px] px-6 py-12 md:px-12 md:py-14">
+          <Reveal>
+            <div className="font-mono-label text-primary mb-5 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+              The Findings
+            </div>
+            <h2 className="text-4xl md:text-5xl max-w-3xl text-primary">Eight leaks, from one real audit.</h2>
+            <p className="mt-6 text-primary/75 max-w-2xl text-lg">
+              Not features — outcomes. Each deliverable maps to a leak we found and a
+              result you can measure. Hover or tap a card for the raw scan output.
+            </p>
+          </Reveal>
           </div>
-          <h2 className="text-4xl md:text-5xl max-w-3xl">Eight leaks, from one real audit.</h2>
-          <p className="mt-6 text-muted-foreground max-w-2xl text-lg">
-            Not features — outcomes. Each deliverable maps to a leak we found and a
-            result you can measure. Hover or tap a card for the raw scan output.
-          </p>
-        </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {FINDINGS.map((f, i) => (
-            <FindingCard key={f.num} f={f} delay={i * 50} />
-          ))}
+          <div className="bg-gold rounded-[28px] px-6 py-12 md:px-12 md:py-16 mt-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {FINDINGS.map((f, i) => (
+              <FindingCard key={f.num} f={f} delay={i * 50} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

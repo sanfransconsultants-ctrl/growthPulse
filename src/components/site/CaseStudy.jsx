@@ -2,11 +2,11 @@ import Reveal from "./Reveal";
 
 export default function CaseStudy() {
   return (
-    <section className="relative py-24 md:py-40 border-t border-border/60 bg-secondary/30">
+    <section className="relative py-24 md:py-40 border-t border-border/60 bg-primary">
       <div className="max-w-7xl mx-auto px-6">
         <Reveal>
-          <div className="font-mono-label text-primary mb-5">04 / Proof of Work</div>
-          <h2 className="text-4xl md:text-5xl max-w-3xl">
+          <div className="font-mono-label text-aqua mb-5">Proof of Work</div>
+          <h2 className="text-4xl md:text-5xl max-w-3xl text-on-navy">
             Before &amp; after, in real numbers.
           </h2>
         </Reveal>
