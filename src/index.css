@@ -42,6 +42,8 @@
     --sage: 163 30% 23%;
     /* pale khaki/cream -- used for the Projected Impact cards */
     --khaki: 42 48% 86%;
+    /* deep maroon -- pairs with khaki for the Pricing section */
+    --maroon: 352 88% 25%;
   }
 }
 

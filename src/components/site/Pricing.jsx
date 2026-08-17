@@ -34,7 +34,7 @@ const TIERS = [
   },
   {
     name: "AI Lead Agent",
-    price: "$999 - $1,999/mo",
+    price: "$999 - 1,999/mo",
     tagline: "Automated lead response, booking, and follow-up — 24/7.",
     cta: "Add This to Your Plan",
     ctaHref: "#audit",
@@ -65,63 +65,68 @@ const TIERS = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="relative py-24 md:py-40 border-t border-border/60">
+    <section id="pricing" className="relative py-24 md:py-40 border-t border-border/60 bg-khaki">
       <div className="max-w-7xl mx-auto px-6">
         <Reveal>
-          <div className="font-mono-label text-primary mb-5">Partnership Tiers</div>
-          <h2 className="text-4xl md:text-5xl max-w-3xl">
+          <div className="font-mono-label text-maroon mb-5">Partnership Tiers</div>
+          <h2 className="text-4xl md:text-5xl max-w-3xl text-maroon">
             Start free. Stay only if it pays.
           </h2>
-          <p className="mt-6 text-muted-foreground max-w-2xl text-lg">
+          <p className="mt-6 text-maroon/80 max-w-2xl text-lg">
             No fake scarcity. Move from the free audit to a strategy, then to a
             monthly retainer — only when the numbers justify it.
           </p>
         </Reveal>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-          {TIERS.map((t, i) => (
-            <Reveal key={t.name} delay={i * 100} className={`flex ${t.wide ? "lg:col-span-1" : ""}`}>
-              <div
-                className={`relative flex flex-col w-full rounded-2xl p-8 border transition-all ${
-                  t.glow
-                    ? "border-primary/50 bg-card shadow-[0_0_40px_-12px_hsl(var(--accent)/0.4)]"
-                    : t.highlight
-                    ? "border-primary bg-primary/[0.04]"
-                    : "border-border/60 bg-card"
-                }`}
-              >
-                {t.glow && (
-                  <span className="absolute -top-3 left-8 font-mono-label text-[10px] bg-primary text-primary-foreground px-2 py-1 rounded">
-                    RECOMMENDED
-                  </span>
-                )}
-                <div className="font-mono-label text-muted-foreground mb-2">{t.name}</div>
-                <div className="text-3xl font-semibold tracking-tight mb-2">{t.price}</div>
-                <p
-                  className="text-muted-foreground leading-relaxed mb-6"
-                  dangerouslySetInnerHTML={{ __html: t.tagline }}
-                />
-                <ul className="space-y-3 mb-8 flex-1">
-                  {t.items.map((it) => (
-                    <li key={it} className="flex items-start gap-2.5 text-sm">
-                      <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>{it}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={t.ctaHref}
-                  className={`text-center font-mono-label px-4 py-3 rounded-md transition-colors ${
-                    t.highlight || t.glow
-                      ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                      : "bg-secondary text-foreground hover:bg-secondary/70"
+          {TIERS.map((t, i) => {
+            const isMaroon = t.highlight || t.glow;
+            return (
+              <Reveal key={t.name} delay={i * 100} className={`flex ${t.wide ? "lg:col-span-1" : ""}`}>
+                <div
+                  className={`relative flex flex-col w-full rounded-2xl p-8 border transition-all ${
+                    isMaroon
+                      ? "bg-maroon border-white/20 shadow-2xl"
+                      : "bg-khaki border-maroon/40 shadow-lg"
                   }`}
                 >
-                  {t.cta}
-                </a>
-              </div>
-            </Reveal>
-          ))}
+                  {t.glow && (
+                    <span className="absolute -top-3 left-8 font-mono-label text-[10px] bg-khaki text-maroon px-2 py-1 rounded shadow-md">
+                      RECOMMENDED
+                    </span>
+                  )}
+                  <div className={`font-mono-label mb-2 ${isMaroon ? "text-khaki/70" : "text-maroon/70"}`}>
+                    {t.name}
+                  </div>
+                  <div className={`text-3xl font-semibold tracking-tight mb-2 ${isMaroon ? "text-khaki" : "text-maroon"}`}>
+                    {t.price}
+                  </div>
+                  <p
+                    className={`leading-relaxed mb-6 ${isMaroon ? "text-khaki/85" : "text-maroon/80"}`}
+                    dangerouslySetInnerHTML={{ __html: t.tagline }}
+                  />
+                  <ul className="space-y-3 mb-8 flex-1">
+                    {t.items.map((it) => (
+                      <li key={it} className="flex items-start gap-2.5 text-sm">
+                        <Check className={`w-4 h-4 mt-0.5 shrink-0 ${isMaroon ? "text-khaki" : "text-maroon"}`} />
+                        <span className={isMaroon ? "text-khaki/90" : "text-maroon"}>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={t.ctaHref}
+                    className={`text-center font-mono-label px-4 py-3 rounded-md transition-colors ${
+                      isMaroon
+                        ? "bg-khaki text-maroon hover:bg-khaki/90"
+                        : "bg-maroon text-khaki hover:bg-maroon/90"
+                    }`}
+                  >
+                    {t.cta}
+                  </a>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

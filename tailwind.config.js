@@ -69,6 +69,7 @@ module.exports = {
 			'gold-line': 'hsl(var(--gold-line))',
 			sage: 'hsl(var(--sage))',
 			khaki: 'hsl(var(--khaki))',
+			maroon: 'hsl(var(--maroon))',
   		},
   		fontFamily: {
   			heading: ['var(--font-heading)'],
