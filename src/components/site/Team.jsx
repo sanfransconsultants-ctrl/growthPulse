@@ -27,23 +27,26 @@ const TEAM = [
 export default function Team() {
   return (
     <section id="team" className="relative py-24 md:py-40 border-t border-border/60">
-      <div className="absolute inset-0 mesh-gradient opacity-50 pointer-events-none" />
       <div className="relative max-w-7xl mx-auto px-6">
         <Reveal>
-          <div className="font-mono-label text-primary mb-5">Meet the Team</div>
-          <h2 className="text-4xl md:text-5xl max-w-3xl">
-            A small, senior, multi-disciplinary group.
-          </h2>
-          <p className="mt-6 text-muted-foreground max-w-2xl text-lg">
-            Three people across data, technology, and operations — not a faceless agency.
-            You work with the people who do the work.
-          </p>
+          <div className="bg-maroon rounded-2xl px-6 py-8 md:px-10 md:py-10">
+            <div className="font-mono-label text-khaki mb-5">Meet the Team</div>
+            <h2 className="text-4xl md:text-5xl max-w-3xl text-khaki">
+              A small, senior, multi-disciplinary group.
+            </h2>
+          </div>
+          <div className="mt-6 bg-khaki rounded-2xl px-6 py-6 md:px-10">
+            <p className="text-maroon max-w-2xl text-lg">
+              Three people across data, technology, and operations — not a faceless agency.
+              You work with the people who do the work.
+            </p>
+          </div>
         </Reveal>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
           {TEAM.map((m, i) => (
             <Reveal key={m.name} delay={i * 100}>
-              <div className="card-hover border border-border/60 rounded-2xl p-8 bg-card h-full">
+              <div className="card-hover border border-gold-line/30 rounded-2xl p-8 bg-gold/50 backdrop-blur-md h-full shadow-lg">
                 <div
                   className={`w-16 h-16 rounded-xl bg-gradient-to-br ${m.grad} text-white font-semibold text-lg flex items-center justify-center mb-6 shadow-md`}
                 >
